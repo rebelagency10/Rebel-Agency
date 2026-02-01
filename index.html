@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REBEL AGENCY | Թվային Գերիշխանություն</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --accent: #7b2ff7;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1033 0%, #050505 100%);
+        }
+
+        h1 { font-size: 5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 10px; }
+        h1 span { color: var(--accent); }
+        .subtitle { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; }
+
+        /* Pricing Section */
+        .container { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        .card h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .price { font-size: 3rem; font-weight: 900; color: var(--accent); margin-bottom: 20px; }
+        
+        ul { list-style: none; margin-bottom: 30px; }
+        ul li { margin-bottom: 12px; color: var(--text-dim); display: flex; align-items: center; }
+        ul li::before { content: "✓"; color: var(--accent); margin-right: 10px; font-weight: bold; }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover { opacity: 0.8; }
+
+        /* Animation */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 1s all ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-dim); border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="fade-in">REBEL AGENCY<span>.</span></h1>
+        <p class="subtitle fade-in">Մենք ստեղծում ենք թվային գործիքներ ձեր բիզնեսի համար: Ոչ մի ավելորդ խոստում, միայն արդյունք:</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title fade-in">Մեր Փաթեթները</h2>
+        <div class="grid">
+            <div class="card fade-in">
+                <h3>LITE</h3>
+                <div class="price">$50-$100</div>
+                <ul>
+                    <li>Սոց. ցանցերի ձևավորում</li>
+                    <li>Linktree սայթ-վիզիտկա</li>
+                    <li>10 օրվա կոնտենտ-պլան</li>
+                    <li>Բիզնեսի թվային հիմք</li>
+                </ul>
+                <a href="https://t.me/rebel_agency_bot" class="btn">Պատվիրել</a>
+            </div>
+
+            <div class="card fade-in" style="border-color: #444;">
+                <h3>FORCE</h3>
+                <div class="price">$150-$200</div>
+                <ul>
+                    <li>Landing Page (1 էջ)</li>
+                    <li>Telegram Պատվերների բոտ</li>
+                    <li>20 օրվա կոնտենտ-պլան</li>
+                    <li>Գովազդի ռազմավարություն</li>
+                </ul>
+                <a href="https://t.me/rebel_agency_bot" class="btn">Պատվիրել</a>
+            </div>
+
+            <div class="card fade-in">
+                <h3>EMPIRE</h3>
+                <div class="price">$250-$300</div>
+                <ul>
+                    <li>Բազմաէջանի կայք + CRM</li>
+                    <li>AI Pro խորհրդատու բոտ</li>
+                    <li>30 օրվա կոնտենտ-պլան</li>
+                    <li>Թիրախային գովազդ</li>
+                </ul>
+                <a href="https://t.me/rebel_agency_bot" class="btn">Պատվիրել</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 REBEL AGENCY. Բոլոր իրավունքները պաշտպանված են:</p>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Дополнительный газ: Плавный скролл
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
